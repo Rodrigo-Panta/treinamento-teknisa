@@ -38,26 +38,27 @@ export default {
   },
   methods: {
     openModal : function(dev) {
-      let devLength = dev.programmingLanguages.devLength;
+      let devLength = dev.programmingLanguages.length;
       let devLangs = '';
       for(let i=0; i<devLength; i++) {
-        devLangs += '<div><div><img src="'+ this.imgLang[dev.programmingLanguages[i]]+ '" /></div></div>' 
+        devLangs += '<div><div><img style="width:30px;" src="'+ this.imgLang[dev.programmingLanguages[i].id]+ '" /></div></div>' 
       }
       this.$modal.show(
         {
           template: `
-            <div>
-              <div>
+            <div class="modal">
+              <div class="modalImageContainer">
                 <img src="${dev.picture}" />
               </div>
-              <div>
+              <div class="modalTextContainer">
                 <h4> ${dev.name}</h4>
                 <p> ${dev.age} anos</p>
                 <h5>Contatos</h5>
                 <span> ${dev.email}</span>
                 <h5> Linguagens</h5>
+                ${devLangs}
               </div>
-              <button @click="$emit('close')" >x</button>
+              <button @click="$emit('close')" >X</button>
             </div>
           `,
           props: ['text']
@@ -121,5 +122,7 @@ export default {
   height: 25px;
   width: 25px;
 }
+
+
 
 </style>
