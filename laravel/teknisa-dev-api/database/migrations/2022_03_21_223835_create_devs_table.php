@@ -20,6 +20,7 @@ class CreateDevsTable extends Migration
             $table->integer('age');
             $table->string('picture');
             $table->text('programmingLanguages');
+            $table->text('description');
             $table->timestamps();
         });
     }

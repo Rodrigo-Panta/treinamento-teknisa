@@ -17,10 +17,12 @@ class Dev extends JsonResource
         // return parent::toArray($request);
         return [
             'id' => $this->id, 
-            'name' => $this->email, 
+            'name' => $this->name, 
+            'email' => $this->email, 
             'age' => $this->age, 
             'picture' => $this->picture, 
-            'programmingLanguages' => $this->programmingLanguages
+            'programmingLanguages' => $this->programmingLanguages,
+            'description' => $this->description
         ];
     }
 }
